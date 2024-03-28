@@ -1,0 +1,12 @@
+{
+  "prettier.withNodeModules": true,
+  "prettier.requireConfig": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.resolveGlobalModules": false,
+  "prettier.singleQuote": true,
+  "vs-code-prettier-eslint.prettierLast": true,
+  "eslint.run": "onSave",
+  "eslint.format.enable": true,
+  "eslint.options": {},
+  "eslint.validate": []
+}
