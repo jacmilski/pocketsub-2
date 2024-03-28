@@ -1,9 +1,5 @@
-import Image from 'next/image'
-
 export default function Home() {
   return (
-    <main>
-      Hello Pocketsub in Next.js
-    </main>
-  )
+    <main className="mx-4 px-0 text-center">Hello Pocketsub in Next.js</main>
+  );
 }
