@@ -1,4 +1,7 @@
 {
+  "prisma.fileWatcher": true,
+  "WillLuke.nextjs.addTypesOnSave": true,
+  "WillLuke.nextjs.hasPrompted": true,
   "prettier.withNodeModules": true,
   "prettier.requireConfig": true,
   "prettier.jsxSingleQuote": true,
@@ -8,5 +11,14 @@
   "eslint.run": "onSave",
   "eslint.format.enable": true,
   "eslint.options": {},
-  "eslint.validate": []
+  "eslint.validate": [],
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
 }
