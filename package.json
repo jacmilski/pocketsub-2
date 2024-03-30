@@ -7,13 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly ./prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/client": "^5.11.0",
     "@types/node": "20.11.30",
     "@types/react": "18.2.72",
     "@types/react-dom": "18.2.22",
     "autoprefixer": "10.4.19",
+    "bson": "^6.5.0",
+    "date-fns": "^3.6.0",
     "eslint": "8.57.0",
     "eslint-config-next": "14.1.4",
     "next": "14.1.4",
@@ -26,7 +30,9 @@
   "devDependencies": {
     "eslint-config-prettier": "^9.1.0",
     "prettier": "3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.12"
+    "prettier-plugin-tailwindcss": "^0.5.12",
+    "prisma": "^5.11.0",
+    "ts-node": "^10.9.2"
   },
   "prettier": {
     "plugins": [

@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  email         String         @unique
+  name          String
+  subscriptions Subscription[]
+}
+
+enum SUBSCRIPTION_CURRENCY {
+  PLN
+  USD
+  EUR
+}
+
+enum SUBSCRIPTION_BILLING_PERIOD {
+  MONTHLY
+  QUARTERLY
+  YEARLY
+}
+
+enum SUBSCRIPTION_STATUS {
+  ACTIVE
+  NOT_ACTIVE
+}
+
+model Subscription {
+  id                String                      @id @default(auto()) @map("_id") @db.ObjectId
+  name              String
+  price             Float
+  currency          SUBSCRIPTION_CURRENCY       @default(PLN)
+  start_date        DateTime                    @db.Date
+  end_date          DateTime?                   @db.Date
+  billing_period    SUBSCRIPTION_BILLING_PERIOD @default(MONTHLY)
+  next_payment_date DateTime                    @db.Date
+  category          String
+  avatar_url        String
+  status            SUBSCRIPTION_STATUS         @default(ACTIVE)
+
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String? @db.ObjectId
+
+  payments Payment[]
+}
+
+enum PAYMENT_STATUS {
+  PAID
+  NOT_PAID
+}
+
+model Payment {
+  id       String         @id @default(auto()) @map("_id") @db.ObjectId
+  amount   Float
+  due_date DateTime       @db.Date
+  status   PAYMENT_STATUS @default(NOT_PAID)
+
+  subscriptionId String       @db.ObjectId
+  subscription   Subscription @relation(fields: [subscriptionId], references: [id])
+}
