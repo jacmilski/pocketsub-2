@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly ./prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.11.0",
@@ -15,6 +16,8 @@
     "@types/react": "18.2.72",
     "@types/react-dom": "18.2.22",
     "autoprefixer": "10.4.19",
+    "bson": "^6.5.0",
+    "date-fns": "^3.6.0",
     "eslint": "8.57.0",
     "eslint-config-next": "14.1.4",
     "next": "14.1.4",

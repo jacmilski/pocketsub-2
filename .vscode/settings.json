@@ -20,5 +20,10 @@
   },
   "editor.quickSuggestions": {
     "strings": "on"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindcss.diagnostics": {
+    "enabled": true,
+    "emptyChecking": true
   }
 }

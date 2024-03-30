@@ -1,8 +1,8 @@
-import './globals.css';
+import "./Globals.css";
 
 export const metadata = {
-  title: 'Pocketsub',
-  description: 'Make your payments easier',
+  title: "Pocketsub",
+  description: "Make your payments easier",
 };
 
 export default function RootLayout({
