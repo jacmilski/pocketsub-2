@@ -1,4 +1,4 @@
-import "./Globals.css";
+import "./globals.css";
 
 export const metadata = {
   title: "Pocketsub",
