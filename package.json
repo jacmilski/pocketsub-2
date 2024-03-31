@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "npx prettier . --write",
-    "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly ./prisma/seed.ts"
+    "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly ./prisma/seed.ts",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.9",
