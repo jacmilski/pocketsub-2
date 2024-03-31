@@ -7,6 +7,12 @@ import { ObjectId } from "bson";
 
 const webhookSecret = process.env.WEBHOOK_SECRET || "";
 
+interface User {
+  email: string;
+  name: string;
+  owner?: string;
+}
+
 async function handler(request: Request) {
   const payload = await request.json();
   const headersList = headers();
@@ -30,13 +36,15 @@ async function handler(request: Request) {
     if (eventType === "user.created" || eventType === "user.updated") {
       const { id, email_addresses, username } = evt.data;
 
+      const user: User = {
+        email: email_addresses[0].email_address,
+        name: username,
+        owner: id,
+      };
+
       const data = await prisma.user.upsert({
         where: { email: email_addresses[0].email_address },
-        create: {
-          email: email_addresses[0].email_address,
-          name: username,
-          owner: id,
-        },
+        create: user,
         update: {
           email: email_addresses[0].email_address,
         },
