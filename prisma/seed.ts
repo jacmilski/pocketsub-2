@@ -159,7 +159,6 @@ async function main() {
       id: "test123",
       email: "jacmilski@gmail.com",
       name: "Jacek Michalski",
-      owner: "",
       subscriptions: {
         create: [
           {
