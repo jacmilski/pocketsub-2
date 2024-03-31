@@ -54,6 +54,7 @@ type Event = {
     email_addresses: { id: string; email_address: string }[];
     username: string;
     id: string;
+    owner?: String;
   };
   object: string;
   type: string;
