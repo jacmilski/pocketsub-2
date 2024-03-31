@@ -33,9 +33,9 @@ async function handler(request: Request) {
       const data = await prisma.user.upsert({
         where: { email: email_addresses[0].email_address },
         create: {
-          id,
           email: email_addresses[0].email_address,
           name: username,
+          owner: id,
         },
         update: {
           email: email_addresses[0].email_address,
@@ -51,9 +51,9 @@ async function handler(request: Request) {
 
 type Event = {
   data: {
-    id: string;
     email_addresses: { id: string; email_address: string }[];
     username: string;
+    id: string;
   };
   object: string;
   type: string;
