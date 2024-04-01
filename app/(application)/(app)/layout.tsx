@@ -5,7 +5,8 @@ export default function ApplicationLayout({
 }) {
   return (
     <div>
-      <main>{children}</main>
+      <aside>Side Nav</aside>
+      <main className="">{children}</main>
     </div>
   );
 }
