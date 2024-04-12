@@ -1,18 +1,13 @@
 "use client";
 import React from "react";
 import { SUBSCRIPTION_CURRENCY } from "@prisma/client";
-
-interface SingleStatsComponents {
-  sum: number | string;
-  subTitle: string;
-  currency?: SUBSCRIPTION_CURRENCY;
-}
+import { SingleStatsComponentsProps } from "@/app/interfaces/interfaces";
 
 const SingleStatsComponents = ({
   sum,
   currency = SUBSCRIPTION_CURRENCY.PLN,
   subTitle,
-}: SingleStatsComponents) => {
+}: SingleStatsComponentsProps) => {
   return (
     <div>
       <h2 className="text-xl font-semibold leading-5 tracking-wide">

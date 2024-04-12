@@ -1,9 +1,6 @@
 "use client";
+import { AppContentHeaderProps } from "@/app/interfaces/interfaces";
 import React from "react";
-
-interface AppContentHeaderProps {
-  title: string;
-}
 
 const AppContentHeader = ({ title }: AppContentHeaderProps) => {
   return (

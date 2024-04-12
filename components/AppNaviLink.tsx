@@ -1,14 +1,10 @@
 "use client";
-import Link, { LinkProps } from "next/link";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { UrlObject } from "url";
 import { clsx } from "clsx";
-
-interface AppNaviLinkProps extends LinkProps<unknown> {
-  iconName: string;
-  text: string;
-}
+import { AppNaviLinkProps } from "@/app/interfaces/interfaces";
 
 const AppNaviLink = (props: AppNaviLinkProps) => {
   const pathName = usePathname();
