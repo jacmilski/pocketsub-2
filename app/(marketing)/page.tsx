@@ -20,7 +20,11 @@ export default function HomePage() {
         >
           Get Pocketsub
         </Link>
-        <Image src={heroImg} alt="Hero image" className="max-auto mt-10 px-4" />
+        <Image
+          src={heroImg}
+          alt="Hero image"
+          className="max-auto mt-10 w-full px-4"
+        />
       </section>
       <section className="mx-auto max-w-7xl">
         <p className="mt-20 text-center text-xs font-bold uppercase tracking-[2.4px] text-zinc-500">
