@@ -1,3 +1,5 @@
+import { prisma } from "@/lib/db";
+import { auth } from "@clerk/nextjs";
 import {
   PAYMENT_STATUS,
   Payment,
@@ -79,4 +81,28 @@ export const summarizePaymentsAmount = (
     totalUSDNotPaid,
     totalPLNNotPaid,
   };
+};
+
+export const getDataForDashboard = async () => {
+  const { userId } = auth();
+
+  try {
+    if (!userId) return;
+    const user = await prisma.user.findFirst();
+    if (!user) return;
+    console.log(user);
+    const res = await prisma.subscription.findMany({
+      where: {
+        userId: user.owner,
+      },
+      include: {
+        payments: true,
+      },
+      orderBy: { next_payment_date: "asc" },
+    });
+
+    return res;
+  } catch (err: unknown) {
+    throw new Error("Faild to fetch data");
+  }
 };
