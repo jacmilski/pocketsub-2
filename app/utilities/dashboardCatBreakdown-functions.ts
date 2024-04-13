@@ -1,6 +1,6 @@
 import { Subscription } from "@prisma/client";
 
-const exchangeRates: Record<string, number> = {
+export const exchangeRates: Record<string, number> = {
   EUR: 4.7,
   USD: 4.15,
   PLN: 1,
