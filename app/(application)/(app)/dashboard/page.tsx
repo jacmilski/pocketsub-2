@@ -2,8 +2,6 @@
 import AppContentHeader from "@/components/AppContentHeader";
 import DashboardCatBreakdown from "@/components/DashboardCatBreakdown";
 import DashboardMainStats from "@/components/DashboardMainStats";
-import { prisma } from "@/lib/db";
-import { auth } from "@clerk/nextjs";
 import { format } from "date-fns";
 import Image from "next/image";
 import Disney from "../../../../public/img/avatars/Disney-Avatar.png";
@@ -16,33 +14,10 @@ import Netflix from "../../../../public/img/avatars/Netflix-Avatar.png";
 import Sizzy from "../../../../public/img/avatars/Sizzy-Avatar.png";
 import Spotify from "../../../../public/img/avatars/Spotify-Avatar.png";
 import Zapier from "../../../../public/img/avatars/Zapier-Avatar.png";
-
-const getDataForDashboard = async () => {
-  const { userId } = auth();
-
-  try {
-    if (!userId) return;
-    const user = await prisma.user.findFirst();
-    if (!user) return;
-    console.log(user);
-    const res = await prisma.subscription.findMany({
-      where: {
-        userId: user.owner,
-      },
-      include: {
-        payments: true,
-      },
-      orderBy: { next_payment_date: "asc" },
-    });
-
-    return res;
-  } catch (err: unknown) {
-    throw new Error("Faild to fetch data");
-  }
-};
+import { getData } from "@/app/utilities/MainStats-functions";
 
 export default async function DashboardPage() {
-  const data = await getDataForDashboard();
+  const data = await getData();
 
   if (!data) return null;
 

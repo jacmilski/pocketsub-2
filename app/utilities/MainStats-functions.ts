@@ -83,7 +83,7 @@ export const summarizePaymentsAmount = (
   };
 };
 
-export const getDataForDashboard = async () => {
+export const getData = async () => {
   const { userId } = auth();
 
   try {
