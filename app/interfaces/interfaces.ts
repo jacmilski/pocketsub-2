@@ -23,3 +23,14 @@ export interface AppNaviLinkProps extends LinkProps<unknown> {
   iconName: string;
   text: string;
 }
+
+export interface SubscriptionsMainStatsProps {
+  stats: {
+    totalActiveSubscriptions: number;
+    mostExpensive: string;
+    cheapest: string;
+    totalMonthlyCost: string;
+    totalYearlyCost: string;
+    averageCostPerSubscription: string;
+  };
+}

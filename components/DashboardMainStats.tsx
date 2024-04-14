@@ -5,7 +5,7 @@ import { Payment, Subscription } from "@prisma/client";
 import {
   summarizePaymentsAmount,
   summarizePrices,
-} from "@/app/utilities/dashboardMainStats-functions";
+} from "@/app/utilities/MainStats-functions";
 
 const EUR_PLN = 4.58;
 const USD_PLN = 4.11;
